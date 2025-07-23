@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* 초기화 */
+*{margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+html{overflow-y:scroll}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display: block;}
+body{line-height: 1; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif; background:#ffffff;}
+blockquote, q{quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none;}
+h1, h2, h3, h4, h5, h6 {font-size:1em; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif;}
+table{border-collapse: collapse; border-spacing: 0;}
+ol, ul{list-style: none;}
+a{text-decoration: none; color: #222222;}
+
+legend{position:absolute; margin:0; padding:0; font-size:0; line-height:0; text-indent:-9999em; overflow:hidden;}
+label, input, button, select, img{vertical-align:middle; font-size:1em}
+input, button{margin:0; padding:0; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif; font-size:1em}
+input[type="submit"]{cursor:pointer;}
+button{cursor:pointer;}
+textarea, select{font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif; font-size:1em}
