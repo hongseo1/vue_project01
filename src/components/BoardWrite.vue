@@ -22,7 +22,7 @@
                 title: title.value,
                 date: formatted_date,
                 cont: cont.value,
-                timestamp: timestamp,
+                timestamp: timestamp, //(밀리초 단위 숫자)
             });
             console.log("게시글 작성 성공! /board로 이동 시도..."); // 🚨 이 로그를 추가
         router.push('/board');
