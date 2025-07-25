@@ -1,16 +1,18 @@
 <script setup>
     import axios from 'axios';
     import { ref, onMounted } from 'vue';
-    import { RouterLink } from 'vue-router';
+    import { RouterLink, useRoute } from 'vue-router';
 
     const lists = ref([]);
     const per_page = 10;
     const total_items = ref(0);
-    const number_page = ref(1);
+    const number_page = ref(0);
     const prev = ref(null);
     const next = ref(null);
     const last = ref(null);
     const current_page = ref(1);
+
+    const route = useRoute();
 
     const getData = async (page) => {
         try {
@@ -43,7 +45,8 @@
                 */
             });
 
-            lists.value = data_nums.reverse(); 
+            lists.value = data_nums.reverse(); //.reverse: 배열의 요소 순서를 반전
+            //복잡함.. 다른 방법 생각중
         } catch (error) {
             console.error('서버 문제 발생:', error);
         }
@@ -52,16 +55,16 @@
     onMounted(() => {
         getData(1);
     });
+
+
 </script>
 
 <template>
     <main>
         <section class="board_cont">
-            <h1>게시판</h1>
-            <h2>게시판</h2>
-            <div class="board_list_wrap">
-                <!-- <p>등록된 게시글이 없습니다.</p> -->
-                <ul class="list">
+            <h2 class="cont_tit">게시판</h2>
+            <div class="board_list_wrap" v-if="$route.name === 'board'">
+                <ul class="list"  v-if="lists && lists.length > 0">
                     <li class="list_li list_header">
                         <p class="no">no</p>
                         <p class="tit">제목</p>
@@ -69,22 +72,23 @@
                         <p class="date">등록일</p>
                     </li>
                     <li v-for="list in lists" :key="list.id" class="list_li">
-                        
                         <p class="no">{{list.no}}</p>
-                        <p class="tit">{{list.title}}</p>
+                        <RouterLink class="tit" :to="{name: 'boardDetail', params: {id: list.id}}">{{list.title}}</RouterLink>
                         <p class="writer">{{list.name}}</p>
                         <p class="date">{{list.date}}</p>
                     </li>
                 </ul>
+                <p v-else>등록된 게시글이 없습니다.</p>
+                <div class="list_botton">
+                    <ul class="pagination" v-if="lists && lists.length > 0">
+                        <li v-if="prev"><a @click="getData(prev)"><</a></li>
+                        <li v-for="page in number_page" :class="current_page == page ? 'on' : ''"><a @click="getData(page)">{{page}}</a></li>
+                        <li v-if="next"><a @click="getData(next)">></a></li>
+                    </ul>
+                    <RouterLink to="/board/write" class="btn writer_btn">글쓰기</RouterLink>
+                </div>
             </div>
-            <div class="list_botton">
-                <ul class="pagination">
-                    <li v-if="prev"><a @click="getData(prev)"><</a></li>
-                    <li v-for="page in number_page" :class="current_page == page ? 'on' : ''"><a @click="getData(page)">{{page}}</a></li>
-                    <li v-if="next"><a @click="getData(next)">></a></li>
-                </ul>
-                <RouterLink to="/boardWrite" class="btn writer_btn">글쓰기</RouterLink>
-            </div>
+            <router-view v-else></router-view>
         </section>
     </main>
 </template>

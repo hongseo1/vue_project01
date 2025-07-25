@@ -9,8 +9,8 @@ header nav ul li .link{padding: 20px; font-size: 1.2em; font-weight: bold; curso
 footer{width: 100%; height: 120px; margin-top: 50px; background: rgb(110, 110, 110);}
 
 main section{margin-top: 100px;}
-h1{display: none; text-indent: -9999999;}
-h2{margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold; color: #333333;}
+h1, h2{display: none; text-indent: -9999999;}
+h2.cont_tit{display: block; text-indent: 0; margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold; color: #333333;}
 
 /* 게시판 */
 /* .board_cont{} */
@@ -18,7 +18,7 @@ h2{margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold;
 .board_cont .board_list_wrap .list{border-top: 1px solid #333333;}
 .board_list_wrap .list .list_li{display: flex;}
 .board_list_wrap .list .list_header{border-bottom: 1px solid #dddddd;}
-.board_list_wrap .list .list_li p, .board_list_wrap .list .list_header p.tit{padding: 20px 0; text-align: center;}
+.board_list_wrap .list .list_li p, .board_list_wrap .list .list_header p.tit, .board_list_wrap .list .list_li a{padding: 20px 0; text-align: center;}
 .board_list_wrap .list .list_header p{font-weight: bold;}
 
 .board_list_wrap .list .list_li .no{width: 10%;}

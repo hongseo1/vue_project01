@@ -13,11 +13,25 @@ const router = createRouter({
       path: '/board',
       name: 'board',
       component: () => import('../views/Board.vue'),
-    },
-    {
-      path: '/boardWrite',
-      name: 'boardWrite',
-      component: () => import('../components/BoardWrite.vue')
+      children: [
+        {
+          path: ':id',
+          name: 'boardDetail',
+          component: () => import('../views/BoardDetail.vue'),
+          props: true
+        },
+        {
+          path: 'write',
+          name: 'boardWrite',
+          component: () => import('../components/BoardWriteEdit.vue')
+        },
+        {
+          path: 'edit/:id',
+          name: 'boardEdit',
+          component: () => import('../components/BoardWriteEdit.vue'),
+          props: true
+        }
+      ]
     },
     {
       path: '/shopping',

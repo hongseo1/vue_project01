@@ -1,24 +1,15 @@
 <script setup>
-    
+    import Header from './components/Header.vue';
+    import Footer from './components/Footer.vue';
 </script>
 
 <template>
     <div id="wrap">
-        <header id="header">
-            <nav>
-                <ul>
-                    <li><RouterLink to="/" class="link">Home</RouterLink></li>
-                    <li><RouterLink to="/board" class="link">게시판</RouterLink></li>
-                    <li><RouterLink to="/shopping" class="link">상품 리스트</RouterLink></li>
-                </ul>
-            </nav>
-        </header>
+        <Header></Header>
         <div id="cont_wrap">
             <RouterView></RouterView>
         </div>
-        <footer id="footer">
-            
-        </footer>
+        <Footer></Footer>
     </div>
 </template>
 
