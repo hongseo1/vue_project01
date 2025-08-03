@@ -5,11 +5,13 @@
 
 <template>
     <div id="wrap">
-        <Header></Header>
-        <div id="cont_wrap">
-            <RouterView></RouterView>
-        </div>
-        <Footer></Footer>
+        <main>
+            <Header></Header>
+            <div id="cont_wrap">
+                <RouterView></RouterView>
+            </div>
+            <Footer></Footer>
+        </main>
     </div>
 </template>
 

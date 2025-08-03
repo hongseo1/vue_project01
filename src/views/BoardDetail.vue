@@ -1,42 +1,37 @@
 <script setup>
     import { RouterLink, useRouter } from 'vue-router';
-    import { ref, onMounted } from 'vue';
-    import axios from 'axios';
+    import { onMounted } from 'vue';
+    import { useBoardStore } from '@/store/boardCont.js';
+    import { storeToRefs } from 'pinia';
 
-    const lists = ref([]);
     const router = useRouter();
+    const boardStore = useBoardStore();
+    const { postDetail } = storeToRefs(boardStore);
 
     const props = defineProps({
         id: {
-            type: [String, Number], // id는 문자열 또는 숫자일 수 있습니다.
-            required: true // id는 필수 prop입니다.
+            type: [String, Number],
+            required: true
         }
     });
 
-    const postDetail = ref(null);
+    // 컴포넌트가 마운트될 때, Pinia 스토어의 getPostDetail 액션을 호출(id값과 함께)
+    onMounted(() => {
+        boardStore.getPostDetail(props.id);
+    });
 
-    const getDetailData = async () => {
-        const res = await axios.get(`http://localhost:3000/list/${props.id}`);
-        postDetail.value = res.data; 
-        console.log(res.data);
-
-    }
-
+    //게시물 삭제
     const deleteData = async () => {
-        if(!confirm('삭제하시겠습니까?')){
+        if (!confirm('삭제하시겠습니까?')) {
             return false;
         }
-        try{
-            await axios.delete(`http://localhost:3000/list/${props.id}`);
+        try {
+            await boardStore.deletePost(props.id);
             router.push({ name: 'board' });
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     };
-
-    onMounted(() => {
-        getDetailData();
-    });
 </script>
 
 <template>
