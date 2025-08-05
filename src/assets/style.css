@@ -12,16 +12,15 @@ main section{margin-top: 100px;}
 h1, h2{display: none; text-indent: -9999999;}
 h2.cont_tit{display: block; text-indent: 0; margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold; color: #333333;}
 
-/* 게시판 */
-/* .board_cont{} */
+/* 게시판 메인 */
 .board_cont .board_list_wrap{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto;}
 .board_cont .board_list_wrap .list{border-top: 1px solid #333333;}
 .board_list_wrap .list .list_li{display: flex;}
 .board_list_wrap .list .list_header{border-bottom: 1px solid #dddddd;}
-.board_list_wrap .list .list_li p, .board_list_wrap .list .list_header p.tit, .board_list_wrap .list .list_li a{padding: 20px 0; text-align: center;}
+.board_list_wrap .list .list_li p, .board_list_wrap .list .list_header p.tit, .board_list_wrap .list .list_li a{padding: 20px 0; text-align: center; font-size: 1.125em;}
 .board_list_wrap .list .list_header p{font-weight: bold;}
-
-.board_list_wrap .list .list_li .no{width: 10%;}
+.board_list_wrap .list .list_header p.no{color: #222222;}
+.board_list_wrap .list .list_li .no{width: 10%; color: rgb(78, 145, 233); font-weight: bold;}
 .board_list_wrap .list .list_li .tit{width: 55%; text-align: justify; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .board_list_wrap .list .list_li .writer{width: 15%;}
 .board_list_wrap .list .list_li .date{width: 20%;}
@@ -32,15 +31,21 @@ h2.cont_tit{display: block; text-indent: 0; margin-bottom: 50px; text-align: cen
 .pagination a{display: block; margin: 0 15px; padding: 10px; font-size: 1.12em; cursor: pointer;}
 .pagination .on a{font-weight: bold; color: rgb(78, 145, 233);}
 
-/* 작성 페이지 */
+/* 게시글 작성/수정 페이지 */
 .board_create_update{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto; border-top: 2px solid #333333;}
 .board_create_update .board_cr_up_li{display: flex; align-items: center; justify-content: center; width: 100%; border-bottom: 1px solid #dddddd;}
 .board_create_update .board_tit, .board_create_update .board_writer{height: 10vh;}
 .board_create_update .board_content{height: 30vh;}
-.board_create_update .board_cr_up_li span{display: flex; align-items: center; justify-content: center; width: 12vw; height: 100%; background: #efefef; text-align: center;}
-
-.board_create_update .board_writer input, .board_create_update textarea{float: right; width: calc(87% - 40px); padding: 0 20px; margin: 20px 20px 20px 0; resize: none;}
+.board_create_update .board_cr_up_li span{display: flex; align-items: center; justify-content: center; width: 12vw; height: 100%; background: #efefef; text-align: center; font-weight: bold; font-size: 1.2em;}
+.board_create_update textarea, .board_create_update .board_writer input, .board_create_update .board_writer p{width: calc(87% - 40px); padding: 0 20px; margin: 20px 20px 20px 0; resize: none; font-size: 1.125em;}
 .board_create_update .board_tit textarea{height: calc(100% - 60px); padding: 10px 20px;}
-.board_create_update .board_content textarea{height: calc(100% - 80px); padding: 20px;}
-/* #board_update .board_writer, #board_update .board_writer span, #board_update .board_regdate, #board_update .board_regdate span{height: 50px; line-height: 50px;}
-#board_update .board_writer p, #board_update .board_regdate p{float: right; width: 87%; margin-right: 20px;} */
+.board_create_update .board_content textarea{height: calc(100% - 80px); padding: 20px; line-height: 150%;}
+
+/* 게시글 상세 페이지 */
+.board_detail_wrap{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto; border-top: 2px solid #333333;}
+.board_detail_wrap .detail_head{display: flex; align-items: center; justify-content: space-between; padding: 25px; line-height: 100%;}
+.board_detail_wrap .detail_head .tit{font-size: 1.25em; font-weight: bold;}
+.board_detail_wrap .detail_head .d_head_info{display: flex; margin-left: 30px; }
+.board_detail_wrap .detail_head .writer::after{content: '|'; display: inline-block; margin: 0 10px;}
+.board_detail_wrap .detail_body{padding: 25px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd;}
+.board_detail_wrap .detail_body .cont{line-height: 160%; font-size: 1.125em;}

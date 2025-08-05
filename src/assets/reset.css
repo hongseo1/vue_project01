@@ -3,7 +3,7 @@
 *{margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 html{overflow-y:scroll}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display: block;}
-body{line-height: 1; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif; background:#ffffff;}
+body{line-height: 1; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif; background:#ffffff; color: #222222;}
 blockquote, q{quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after{content: ''; content: none;}
 h1, h2, h3, h4, h5, h6 {font-size:1em; font-family:'Malgun Gothic', dotum, 'Noto Sans KR', sans-serif;}

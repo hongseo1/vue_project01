@@ -32,6 +32,13 @@
             console.log(err);
         }
     };
+
+    const formatContent = (content) => {
+        if (!content) {
+            return '';
+        }
+        return content.replace(/\n/g, '<br>');
+    };
 </script>
 
 <template>
@@ -40,11 +47,13 @@
         <div class="board_detail" v-if="postDetail">
             <div class="detail_head">
                 <p class="tit">{{postDetail.title}}</p>
-                <p class="writer">{{postDetail.name}}</p>
-                <p class="date">{{postDetail.date}}</p>
+                <div class="d_head_info">
+                    <p class="writer">{{postDetail.name}}</p>
+                    <p class="date">{{postDetail.date}}</p>
+                </div>
             </div>
             <div class="detail_body">
-                <div class="cont">{{postDetail.cont}}</div>
+                <div class="cont" v-html="formatContent(postDetail.cont)"></div>
             </div>
         </div>
         <div v-else>

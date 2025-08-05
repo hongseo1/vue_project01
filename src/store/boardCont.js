@@ -96,9 +96,19 @@ export const useBoardStore = defineStore('board', {
         //게시물 작성/수정 액션
         async savePost(id = null, postData) {
             try {
-                if (this.isEditMode) {
+                if(this.isEditMode) {
                     //수정 모드: PUT 요청
-                    await axios.put(`http://localhost:3000/list/${id}`, postData);
+                    const response = await axios.get(`http://localhost:3000/list/${id}`);
+                    const existingPost = response.data;
+
+                    //변경된 필드(title, name, cont)와 기존 필드(timestamp, date 등)를 병합
+                    const updatedPostData = {
+                        ...existingPost,
+                        ...postData
+                    };
+                    
+                    //병합된 객체로 PUT 요청을 보내 기존 데이터를 완전히 덮어씀
+                    await axios.put(`http://localhost:3000/list/${id}`, updatedPostData);
                 } else {
                     //작성 모드: POST 요청
                     await axios.post('http://localhost:3000/list', postData);

@@ -28,13 +28,23 @@
     });
 
     const submitPost = async () => {
-        const postData = {
-            title: form.value.title,
-            name: form.value.writer,
-            cont: form.value.cont,
-            timestamp: Date.now(),
-            date: new Date().toISOString().split('T')[0]
-        };
+        let postData;
+        if(isEditMode.value){
+            postData = {
+                title: form.value.title,
+                name: form.value.writer,
+                cont: form.value.cont
+            };
+        }else {
+            postData = {
+                title: form.value.title,
+                name: form.value.writer,
+                cont: form.value.cont,
+                timestamp: Date.now(),
+                date: new Date().toISOString().split('T')[0]
+            };
+        }
+        
 
         try {
             await boardStore.savePost(props.id, postData);
@@ -58,7 +68,9 @@
                 <span>내용 </span><textarea v-model="form.cont"></textarea>
             </div>
             <div class="board_cr_up_li board_writer cf">
-                <span>작성자 </span><input type="text" v-model="form.writer" />
+                <span>작성자 </span>
+                <p v-if="isEditMode">{{form.writer}}</p>
+                <input type="text" v-model="form.writer" v-else/>
             </div>
 
             <div class="btn_wrap">
