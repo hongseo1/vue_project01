@@ -19,7 +19,7 @@ export const useBoardStore = defineStore('board', { //'board'라는 이름의 Pi
         },
         isEditMode: false //현재가 게시물 수정 모드인지('true') 아니면 새 글 작성 모드인지('false')를 구분하기 위한 객체
     }),
-    getters: { // getters: 'state'를 기반으로 계산된 속성을 정의하는 곳, 'state'를 직접 수정하지 않고 파생된 상태를 반환
+    getters: { //getters: 'state'를 기반으로 계산된 속성을 정의하는 곳, 'state'를 직접 수정하지 않고 파생된 상태를 반환
         processedLists: (state) => {
             if (!state.lists || state.lists.length === 0) { //'lists'가 없거나 비어있으면 빈 배열을 반환
                 return [];
@@ -36,8 +36,8 @@ export const useBoardStore = defineStore('board', { //'board'라는 이름의 Pi
                 };
             });
         },
-        hasNextPage: (state) => state.hasMoreData, //다음 페이지가 있는지 여부를 반환, 'hasMoreData' 상태를 직접 사용
         hasPrevPage: (state) => state.pageHistory.length > 0, //이전 페이지가 있는지 여부를 반환, 'pageHistory' 배열의 길이를 확인하여 판단
+        hasNextPage: (state) => state.hasMoreData, //다음 페이지가 있는지 여부를 반환, 'hasMoreData' 상태를 직접 사용
     },
     actions: { //actions: 비동기 작업 및 'state' 변경 로직을 정의하는 곳, 'state'를 직접 변경할 수 있다.
         //게시물 목록을 가져오는 비동기 액션

@@ -25,7 +25,7 @@
 
     //전체 게시물 수를 페이지당 게시물 수로 나누어 전체 페이지 수를 계산
     const totalPages = computed(() => {
-        return Math.ceil(boardStore.totalPostsCount / boardStore.per_page); // Math.ceil() 함수를 사용하여 소수점 이하를 올림 처리하여 전체 페이지 수를 구함
+        return Math.ceil(boardStore.totalPostsCount / boardStore.per_page); //Math.ceil() 함수를 사용하여 소수점 이하를 올림 처리하여 전체 페이지 수를 구함
     });
 
     //전체 페이지 번호(1부터 totalPages까지)를 담은 배열을 생성
