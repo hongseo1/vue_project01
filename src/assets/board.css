@@ -1,2 +1,20 @@
 @charset "utf-8";
 
+/* 게시판 메인 */
+.board_cont .board_list_wrap{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto;}
+.board_cont .board_list_wrap .list{border-top: 1px solid #333333;}
+.board_list_wrap .list .list_li{display: flex;}
+.board_list_wrap .list .list_header{border-bottom: 1px solid #dddddd;}
+.board_list_wrap .list .list_li p, .board_list_wrap .list .list_header p.tit, .board_list_wrap .list .list_li a{padding: 20px 0; text-align: center; font-size: 1.125em;}
+.board_list_wrap .list .list_header p{font-weight: bold;}
+.board_list_wrap .list .list_header p.no{color: #222222;}
+.board_list_wrap .list .list_li .no{width: 10%; color: rgb(78, 145, 233); font-weight: bold;}
+.board_list_wrap .list .list_li .tit{width: 55%; text-align: justify; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.board_list_wrap .list .list_li .writer{width: 15%;}
+.board_list_wrap .list .list_li .date{width: 20%;}
+
+.list_botton, .btn_wrap{position: relative; display: flex; align-items: center; justify-content: flex-end; width: 80vw; height: 6vh; margin: 50px auto 0;}
+.board_cont .btn{margin-left: 15px; padding: 15px 20px; font-size: 1.12em; background: rgb(78, 145, 233); color: #ffffff; border-radius: 10px;}
+.pagination{position: absolute; left: 50%; transform: translateX(-50%); display: flex;}
+.pagination li a{display: block; margin: 0 15px; padding: 10px; font-size: 1.12em; cursor: pointer;}
+.pagination li a.on{font-weight: bold; color: rgb(78, 145, 233);}

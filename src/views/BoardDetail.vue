@@ -1,4 +1,5 @@
 <script setup>
+    /* 게시글 상세 페이지 */
     import { useRouter } from 'vue-router';
     import { onMounted, watch } from 'vue';
     import { useBoardStore } from '@/store/boardCont.js';
@@ -85,3 +86,13 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+    .board_detail_wrap{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto; border-top: 2px solid #333333;}
+    .board_detail_wrap .detail_head{display: flex; align-items: center; justify-content: space-between; padding: 25px; line-height: 100%;}
+    .board_detail_wrap .detail_head .tit{font-size: 1.25em; font-weight: bold;}
+    .board_detail_wrap .detail_head .d_head_info{display: flex; margin-left: 30px; }
+    .board_detail_wrap .detail_head .writer::after{content: '|'; display: inline-block; margin: 0 10px;}
+    .board_detail_wrap .detail_body{padding: 25px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd;}
+    .board_detail_wrap .detail_body .cont{line-height: 160%; font-size: 1.125em;}
+</style>

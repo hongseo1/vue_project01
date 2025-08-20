@@ -88,3 +88,7 @@
         <router-view v-else></router-view>
     </section>
 </template>
+
+<style>
+    @import '../assets/board.css';
+</style>

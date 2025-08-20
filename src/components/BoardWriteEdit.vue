@@ -1,4 +1,5 @@
 <script setup>
+    /* 게시글 작성/수정 페이지 */
     import { onMounted } from 'vue';
     import { useRouter } from 'vue-router';
     import { useBoardStore } from '@/store/boardCont.js';
@@ -79,3 +80,14 @@
         </form>
     </div>
 </template>
+
+<style scoped>
+    .board_create_update{display: block; width: 80vw; /* height: 65vh; */ margin: 0 auto; border-top: 2px solid #333333;}
+    .board_create_update .board_cr_up_li{display: flex; align-items: center; justify-content: center; width: 100%; border-bottom: 1px solid #dddddd;}
+    .board_create_update .board_tit, .board_create_update .board_writer{height: 10vh;}
+    .board_create_update .board_content{height: 30vh;}
+    .board_create_update .board_cr_up_li span{display: flex; align-items: center; justify-content: center; width: 12vw; height: 100%; background: #efefef; text-align: center; font-weight: bold; font-size: 1.2em;}
+    .board_create_update textarea, .board_create_update .board_writer input, .board_create_update .board_writer p{width: calc(87% - 40px); padding: 0 20px; margin: 20px 20px 20px 0; resize: none; font-size: 1.125em;}
+    .board_create_update .board_tit textarea{height: calc(100% - 60px); padding: 10px 20px;}
+    .board_create_update .board_content textarea{height: calc(100% - 80px); padding: 20px; line-height: 150%;}
+</style>
